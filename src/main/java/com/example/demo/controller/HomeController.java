@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.model.Pedido;
 
-import br.com.alura.mvc.mudi.repository.PedidoRepository;
-
 @Controller
 public class HomeController {
 
@@ -19,7 +17,7 @@ public class HomeController {
 
 	@GetMapping(path = "/home")
 	public String home(Model module) {		
-		List<Pedido> pedidos = pedidoRepository.recuraTodosOsPedidos();
+		List<Pedido> pedidos = pedidoRepository.findAll();
 		module.addAttribute("pedidos", pedidos);
 		return "home";
 	}
