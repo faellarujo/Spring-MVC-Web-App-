@@ -6,13 +6,13 @@ import com.example.demo.model.Pedido;
 
 public class RequisicaoNovoPedido {
 	
-	@NotBlank
+    @NotBlank
 	private String nomeProduto; 
 	
-	@NotBlank
+    @NotBlank
 	private String urlDoProduto; 
 	
-	@NotBlank
+    @NotBlank
 	private String urlImagem; 
 	
 	private String descricao;

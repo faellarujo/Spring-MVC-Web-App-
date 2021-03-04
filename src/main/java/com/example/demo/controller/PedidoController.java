@@ -25,12 +25,12 @@ public class PedidoController {
 	}
 
 	@PostMapping("novo")
-	public String novo(@Valid RequisicaoNovoPedido requisiacao, BindingResult result) {
-		
-		if (result.hasErrors()) {			
+	public String novo(@Valid RequisicaoNovoPedido requisiacao, BindingResult bindingResult) {		
+					
+		if (bindingResult.hasErrors()) {
 			return "pedido/formulario";
-			
-		}		
+		}
+		
 		Pedido pedido = new Pedido();
 		pedido = requisiacao.toPedido();
 		pedidoRepository.save(pedido);		
