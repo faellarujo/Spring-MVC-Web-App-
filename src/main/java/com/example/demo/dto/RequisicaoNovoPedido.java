@@ -3,6 +3,7 @@ package com.example.demo.dto;
 import javax.validation.constraints.NotBlank;
 
 import com.example.demo.model.Pedido;
+import com.example.demo.model.StatusPedido;
 
 public class RequisicaoNovoPedido {
 	
@@ -48,6 +49,7 @@ public class RequisicaoNovoPedido {
 		pedido.setUrlProdudto(urlDoProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setDescricao(descricao);
+		pedido.setStatus(StatusPedido.APROVADO);
 		return pedido;
 	}
 	

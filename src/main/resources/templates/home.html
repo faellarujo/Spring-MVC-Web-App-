@@ -15,11 +15,16 @@
 				<a class="nav-link active" aria-current="page" href="#">Aprovados</a>
 				<a class="nav-link active" aria-current="page" href="#">Entregue</a>
 			</div>
-			<a href="/pedido/formulario"<button class="btn btn-outline-success">Novo</button></a>
+			<a href="/pedido/formulario"><button class="btn btn-outline-success">Novo</button></a>
 		</nav>
-		<div th:each="pedido : ${pedidos}">
-			<div class="card-header mb-3" th:text="${pedido.nomeProduto}">Nome
-				do Produto</div>
+		<div class="card mb-3" th:each="pedido : ${pedidos}">
+		<th:block th:switch = "${#strings.toString(pedido.status)}">
+			
+				<div th:case="'AGUARDANDO'"  class="card-header alert alert-warning" th:text="${pedido.nomeProduto}">Nomedo Produto</div>
+				<div th:case="'APROVADO'"    class="card-header alert  alert-success" th:text="${pedido.nomeProduto}">Nomedo Produto</div>
+				<div th:case="'ENTREGUE'"    class="card-headeralert alert alert-dark" th:text="${pedido.nomeProduto}">Nomedo Produto</div>
+		    </th:block>
+				
 			<div class="card-body">
 				<div class="row">
 					<div class="col-12 col-sm-8 mb-3 ">
@@ -45,7 +50,7 @@
 					</div>
 					<div class="col-12 col-sm-8">
 						<div>
-							<img class="img-fluid img-thumbnail"
+							<img class="img-thumbnail"
 								th:src="${pedido. urlImagem}" alt="" src="">
 						</div>
 					</div>
